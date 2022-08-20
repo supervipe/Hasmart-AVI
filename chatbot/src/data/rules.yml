@@ -1,0 +1,47 @@
+version: "2.0"
+
+rules:
+
+- rule: Ativar a Martha
+  conversation_start: true
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- rule: Dizer "tchau" sempre que o usuário dizer "tchau"
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- rule: Solicitar um atendente humano
+  steps:
+    - intent: call_human
+    - action: utter_call_human
+    - action: action_call_human
+
+- rule: Pedir para repetir a frase novamente
+  steps:
+    - intent: nlu_fallback
+    - action: utter_please_rephrase
+
+# - rule: Dificuldades 
+#   steps:
+#   - intent: dif_cobrar
+#   - action: utter_dificuldade
+
+# - rule: Activate form
+#   steps:
+#   - intent: request_names
+#   - action: name_form
+#   - active_loop: name_form
+
+# - rule: Submit form
+#   condition:
+#   - active_loop: name_form
+#   steps:
+#   - action: name_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: utter_submit
+#   - action: utter_slots_values

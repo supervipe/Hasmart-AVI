@@ -1,0 +1,45 @@
+version: '3.7'
+services:
+  martha-server:
+    build: ./chatbot/
+    container_name: martha-server
+    restart: unless-stopped
+    networks: ['rasa-network']
+    expose:
+      - 5005
+    ports:
+      - 5005:5005
+    volumes:
+      - ./chatbot/src/:/app
+    command: >
+      run
+      -m models
+      --enable-api
+      --log-file out.log
+      --endpoints endpoints.yml
+  martha-action-server:
+    image: rasa/rasa-sdk:2.6.0
+    container_name: martha-action-server
+    restart: unless-stopped
+    networks: ['rasa-network']
+    volumes:
+      - ./chatbot/src/actions:/app/actions
+  martha-rasa-mongodb:
+    image: mongo:4.0
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    networks: ['rasa-network']
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: martha_rasa
+      MONGO_INITDB_ROOT_PASSWORD: martha_rasa_mongodb
+  martha-rest-api:
+    build: ./api
+    container_name: martha-rest-api
+    restart: unless-stopped
+    networks: ['rasa-network']
+    ports:
+      - 8000:80
+networks: {rasa-network: {}}
+volumes:
+  mongo_data:

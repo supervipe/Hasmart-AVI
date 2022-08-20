@@ -1,0 +1,115 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - call_human
+  - dif_cobrar
+  - dif_limite
+  - dif_deslocamento
+  - dif_outras
+  - service_quality
+  - positive
+  - negative
+  - neutral
+
+
+
+entities:
+  - service_quality
+
+
+responses:
+  utter_greet:
+  - text: "Olá! Você poderia nos informar como está cuidando da sua saúde?"
+
+  utter_verificar_pressao:
+  - text: "Sua pressão está boa?"
+
+  utter_opiniao:
+  - text: "Você poderia dar sua opinião sobre o projeto para a gente melhorar cada vez mais?"
+
+  utter_avaliar:
+  - text: "Como você avaliaria esse serviço?"
+
+  utter_dificuldade:
+  - text: "Você teve alguma dificuldade?"
+
+  utter_qual_dificuldade:
+  - text: "Qual foi a sua dificuldade?"
+
+  utter_dif_cobrar:
+  - text: "Que pena isso não era pra acontecer a medição na farmácia é gratuita para o paciente HASmart."
+
+  utter_dif_limite:
+  - text: "Isso não era pra ter acontecido, pois não há limite de quantas medições você pode fazer!"
+
+  utter_dif_deslocamento:
+  - text: "Que pena, mas tente ir em alguma farmácia Pague Menos quando necessitar sair de casa"
+
+  utter_dif_outras:
+  - text: "Entendo, vou repassar sua dificuldade para a farmácia."
+
+  utter_segue_tratando:
+  - text: "Mas você continua seguindo o tratamento?"
+
+  utter_segue_tratando_sim:
+  - text: "Muito bem! É importante se cuidar para melhorar cada vez mais, espero que continue com o tratamento."
+
+  utter_segue_tratando_nao:
+  - text: "Que triste, não desista do tratamento e tenha uma qualidade de vida melhor."
+
+  utter_ask_moz_questions:
+  - text: "Você poderia responder algumas perguntas para melhorarmos nosso serviço?"
+
+  utter_goodbye:
+  - text: "Tenha um ótimo dia."
+
+  utter_call_human:
+  - text: "Só um momento... Estamos chamando o responsável."
+
+  utter_please_rephrase:
+  - text: "Desculpa! Eu não consegui entender."
+
+  utter_despedida:
+  - text: "Tenha um ótimo dia."
+
+
+slots:
+  moz_questions:
+    type: bool
+    influence_conversation: false
+  service_quality:
+    type: text
+    influence_conversation: false
+  receive_any:
+    type: text
+
+
+actions:
+  - action_MOZ
+  - action_call_human
+
+
+forms:
+  service_evaluation_form:
+    required_slots:
+      service_identification:
+        - type: from_text
+      # service_quality:
+      #   - type: from_text
+      #     entity: service_evaluation
+      moz_questions:
+        - type: from_intent
+          intent: affirm
+          value: True
+        - type: from_intent
+          intent: deny
+          value: False
+
+
+session_config:
+  session_expiration_time: 5
+  carry_over_slots_to_new_session: false

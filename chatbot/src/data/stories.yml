@@ -1,0 +1,235 @@
+version: "2.0"
+
+# Não quer responder nada
+stories:
+- story: "a"
+  steps:
+  - intent: deny
+  - action: utter_goodbye
+
+
+- story: "b"
+  steps:
+  - intent: affirm
+  - action: utter_verificar_pressao
+  - or:
+    - intent: affirm
+    - intent: deny
+    - intent: positive
+    - intent: negative
+    - intent: neutral
+  - action: utter_opiniao
+  - checkpoint: check_service_quality
+
+
+# Quer informar se está se cuidando, mas não quer avaliar o serviço
+- story: "c"
+  steps:
+  - checkpoint: check_service_quality
+  - intent: deny
+  - action: utter_goodbye
+
+
+# Quer informar se está se cuidando e avaliar
+- story: "d"
+  steps:
+  - checkpoint: check_service_quality
+  - intent: affirm
+  - action: utter_avaliar
+  - or:
+    - intent: service_quality
+    - intent: positive
+    - intent: negative
+    - intent: neutral
+  - action: utter_dificuldade
+  - checkpoint: check_dificuldade
+
+
+# Não teve dificuldade, segue tratando
+- story: "d1"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: deny
+  - action: utter_segue_tratando
+  - intent: affirm
+  - action: utter_segue_tratando_sim
+  - action: utter_goodbye
+
+
+# Teve dificuldade, não segue tratando
+- story: "d2"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: deny
+  - action: utter_segue_tratando
+  - intent: deny
+  - action: utter_segue_tratando_nao
+  - action: utter_goodbye
+
+
+# Quer informar se está cuidando; quer avaliar o serviço; 
+# teve dificuldades com cobrança e não segue o tratamento
+- story: "cobranca_nao1"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: dif_cobrar
+  - action: utter_dif_cobrar
+  - action: utter_segue_tratando
+  - intent: deny
+  - action: utter_segue_tratando_nao
+  - action: utter_goodbye
+
+
+# Quer informar se está cuidando; quer avaliar o serviço; 
+# teve dificuldades com cobrança e não segue o tratamento
+- story: "cobranca_nao2"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: affirm
+  - action: utter_qual_dificuldade
+  - intent: dif_cobrar
+  - action: utter_dif_cobrar
+  - action: utter_segue_tratando
+  - intent: deny
+  - action: utter_segue_tratando_nao
+  - action: utter_goodbye
+
+
+# Quer informar se está cuidando; quer avaliar o serviço; 
+# teve dificuldades com cobrança e sim segue o tratamento
+- story: "cobranca_sim1"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: dif_cobrar
+  - action: utter_dif_cobrar
+  - action: utter_segue_tratando
+  - intent: affirm
+  - action: utter_segue_tratando_sim
+  - action: utter_goodbye
+
+
+# Quer informar se está cuidando; quer avaliar o serviço; 
+# teve dificuldades com cobrança e sim segue o tratamento
+- story: "cobranca_sim2"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: affirm
+  - action: utter_qual_dificuldade
+  - intent: dif_cobrar
+  - action: utter_dif_cobrar
+  - action: utter_segue_tratando
+  - intent: affirm
+  - action: utter_segue_tratando_sim
+  - action: utter_goodbye
+
+
+# Quer informar se está cuidando; quer avaliar o serviço; 
+# teve dificuldades com limite e não segue o tratamento
+- story: "limite_nao1"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: dif_limite
+  - action: utter_dif_limite
+  - action: utter_segue_tratando
+  - intent: deny
+  - action: utter_segue_tratando_nao
+  - action: utter_goodbye
+
+
+# Quer informar se está cuidando; quer avaliar o serviço; 
+# teve dificuldades com limite e não segue o tratamento
+- story: "limite_nao2"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: affirm
+  - action: utter_qual_dificuldade
+  - intent: dif_limite
+  - action: utter_dif_limite
+  - action: utter_segue_tratando
+  - intent: deny
+  - action: utter_segue_tratando_nao
+  - action: utter_goodbye
+
+
+# Quer informar se está cuidando; quer avaliar o serviço; 
+# teve dificuldades com limite e sim segue o tratamento
+- story: "limite_sim1"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: dif_limite
+  - action: utter_dif_limite
+  - action: utter_segue_tratando
+  - intent: affirm
+  - action: utter_segue_tratando_sim
+  - action: utter_goodbye
+
+
+# Quer informar se está cuidando; quer avaliar o serviço; 
+# teve dificuldades com limite e sim segue o tratamento
+- story: "limite_sim2"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: affirm
+  - action: utter_qual_dificuldade
+  - intent: dif_limite
+  - action: utter_dif_limite
+  - action: utter_segue_tratando
+  - intent: affirm
+  - action: utter_segue_tratando_sim
+  - action: utter_goodbye
+
+
+# Quer informar se está cuidando; quer avaliar o serviço; 
+# teve dificuldades com deslocamento e não segue o tratamento
+- story: "deslocamento_nao1"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: dif_deslocamento
+  - action: utter_dif_deslocamento
+  - action: utter_segue_tratando
+  - intent: deny
+  - action: utter_segue_tratando_nao
+  - action: utter_goodbye
+
+
+# Quer informar se está cuidando; quer avaliar o serviço; 
+# teve dificuldades com deslocamento e não segue o tratamento
+- story: "deslocamento_nao2"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: affirm
+  - action: utter_qual_dificuldade
+  - intent: dif_deslocamento
+  - action: utter_dif_deslocamento
+  - action: utter_segue_tratando
+  - intent: deny
+  - action: utter_segue_tratando_nao
+  - action: utter_goodbye
+
+
+# Quer informar se está cuidando; quer avaliar o serviço; 
+# teve dificuldades com deslocamento e sim segue o tratamento
+- story: "deslocamento_sim1"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: dif_deslocamento
+  - action: utter_dif_deslocamento
+  - action: utter_segue_tratando
+  - intent: affirm
+  - action: utter_segue_tratando_sim
+  - action: utter_goodbye
+
+
+# Quer informar se está cuidando; quer avaliar o serviço; 
+# teve dificuldades com deslocamento e sim segue o tratamento
+- story: "deslocamento_sim2"
+  steps:
+  - checkpoint: check_dificuldade
+  - intent: affirm
+  - action: utter_qual_dificuldade
+  - intent: dif_deslocamento
+  - action: utter_dif_deslocamento
+  - action: utter_segue_tratando
+  - intent: affirm
+  - action: utter_segue_tratando_sim
+  - action: utter_goodbye

@@ -1,0 +1,483 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - oi
+    - olá
+    - bom dia
+    - boa tarde
+    - boa noite
+    - bomdia
+    - boatarde
+    - boanoite
+    - ola tudo bem
+    - oi tudo bom
+
+
+- intent: goodbye
+  examples: |
+    - até mais
+    - obrigado
+    - até a próxima
+    - ate mais tarde
+    - até depois
+    - tenha um bom dia
+    - tenha um ótimo dia
+    - agradecido
+    - tchau
+
+
+- intent: affirm
+  examples: |
+    - posso
+    - sim
+    - claro
+    - isso mesmo
+    - óbvio
+    - mas é claro
+    - com certeza
+    - correto
+    - afirmativo
+
+
+- intent: deny
+  examples: |
+    - não
+    - nao
+    - jamais
+    - nunca
+    - acho que não
+    - de jeito nenhum
+    - não gosto disso
+    - contra
+    - rejeito
+
+- intent: positive
+  examples: |
+    - está boa
+    - excelente
+    - top
+    - muito boa
+    - muito bom
+    - bom
+    - otimo
+    - otima
+    - nao podia estar melhor
+
+- intent: negative
+  examples: |
+    - ruim
+    - mal
+    - mau
+    - não vai bem
+    - pessimo
+    - horrivel
+    - de jeito nenhum
+
+- intent: neutral
+  examples: |
+    - acho que não
+    - podia ser melhor
+    - mais ou menos
+    - talvez
+    - moderadamente
+    - parcialmente
+    - quase
+    - um pouco
+    - nem bem nem mal
+
+- intent: call_human
+  examples: |
+    - gostaria de falar com a atendente
+    - quero falar com responsável
+    - poderia falar com uma pessoa
+    - me chama a pessoa
+    - posso falar com uma pessoa
+    - quero falar com alguém
+    - cadê o humano?
+    - quero falar com a pessoa
+    - chama uma pessoa
+    - ligar para um humano
+    - falar com um médico
+    - gostaria de falar com médico
+    - chama a médica
+    - cadê a médica
+
+- intent: dif_cobrar
+  examples: |
+    - cobraram minha medição
+    - queriam que eu pagasse a medição
+    - custava dinheiro
+    - fui cobrado
+    - pediram para mim pagar
+    - era pago
+    - eu tive que pagar
+    - me cobraram
+    - queriam dinheiro
+    - tive que pagar
+    - me pediram dinheiro
+    - me custou dinheiro
+    - eles disseram que eu tinha que pagar
+    - disseram que era pago
+    - eles queriam dinheiro
+    - eu não quis pagar o que me cobraram
+    - eu fui cobrado
+    - era pra ser gratis e não foi
+    - era para ser de graça e não era
+
+- intent: dif_limite
+  examples: |
+    - não me deixaram medir
+    - não deixaram aferir
+    - disseram que eu já tinha feito todas as medições
+    - disseram que eu não podia mais medir
+    - chegou no meu limite
+    - fui informado que já tinha chegado no máximo
+    - não podia mais
+    - não podia mais me medir
+    - parece que eu fiz medições demais já
+    - Não queriam me medir mais
+    - não queriam que eu fizesse mais nenhuma
+    - disseram que medi demais
+    - me falaram que cheguei no máximo de aferições
+    - me falaram que cheguei no máximo de medições
+    - não posso mais medir
+    - não posso mais aferir
+    - disseram que as medições acabaram para mim
+    - acabou as medições
+    - as medições acabaram
+
+- intent: dif_deslocamento
+  examples: |
+    - a farmácia é muito longe
+    - moro longe de uma pague menos
+    - moro longe da farmácia
+    - as pague menos são longe 
+    - não tenho como passar por uma farmácia
+    - estou com medo de ir em uma farmácia
+    - não estou saindo nem para ir a farmácia
+    - é perigoso sair para a farmácia
+    - não tenho tempo de ir a farmácia
+    - não tenho tempo de ir a pague menos
+    - não estou indo em canto nenhum
+    - a farmácia é muito ruim de acessar
+    - não tive como ir na farmácia
+
+- intent: dif_outras
+  examples: |
+    - outras dificuldades
+    - foi outra coisa
+
+- intent: service_quality
+  examples: |
+    - foi ruim demais
+    - foi gostei não
+    - foi muito péssimo
+    - foi muito ruim
+    - foi nota zero
+    - foi comum
+    - foi mais ou menos
+    - foi nada demais
+    - foi tranquilo
+    - foi normal
+    - foi bom
+    - foi organizado
+    - foi atencioso
+    - foi simpático
+    - foi legal
+    - foi nota dez
+    - foi alto padrão
+    - foi perfeito
+    - foi excelente
+    - foi ta de parabens
+    - para ser sincera foi ruim demais
+    - pra ser sincera foi gostei não
+    - para ser sincera foi muito péssimo
+    - para ser sincera foi muito ruim
+    - para ser sincera foi nota zero
+    - para ser sincera foi comum
+    - pra ser sincera foi mais ou menos
+    - para ser sincera foi nada demais
+    - pra ser sincera foi tranquilo
+    - para ser sincera foi normal
+    - para ser sincera foi bom
+    - para ser sincera foi organizado
+    - para ser sincera foi atencioso
+    - para ser sincera foi simpático
+    - para ser sincera foi legal
+    - para ser sincera foi nota dez
+    - pra ser sincera foi alto padrão
+    - para ser sincera foi perfeito
+    - pra ser sincera foi excelente
+    - para ser sincera foi ta de parabens
+    - o atendimento foi ruim demais
+    - atendimento foi gostei não
+    - o atendimento foi muito péssimo
+    - o atendimento foi muito ruim
+    - o atendimento foi nota zero
+    - o atendimento foi comum
+    - atendimento foi mais ou menos
+    - o atendimento foi nada demais
+    - atendimento foi tranquilo
+    - o atendimento foi normal
+    - o atendimento foi bom
+    - o atendimento foi organizado
+    - o atendimento foi atencioso
+    - o atendimento foi simpático
+    - o atendimento foi legal
+    - o atendimento foi nota dez
+    - atendimento foi alto padrão
+    - o atendimento foi perfeito
+    - atendimento foi excelente
+    - o atendimento foi ta de parabens
+    - o serviço foi ruim demais
+    - serviço foi gostei não
+    - o serviço foi muito péssimo
+    - o serviço foi muito ruim
+    - o serviço foi nota zero
+    - o serviço foi comum
+    - serviço foi mais ou menos
+    - o serviço foi nada demais
+    - serviço foi tranquilo
+    - o serviço foi normal
+    - o serviço foi bom
+    - o serviço foi organizado
+    - o serviço foi atencioso
+    - o serviço foi simpático
+    - o serviço foi legal
+    - o serviço foi nota dez
+    - serviço foi alto padrão
+    - o serviço foi perfeito
+    - serviço foi excelente
+    - o serviço foi ta de parabens
+    - foi ruim demais atendimento
+    - fui mal atendido
+    - fui mau atendida
+    - foi péssimo o atendimento
+    - foi horrível o serviço
+    - o serviço foi devagar
+    - atendimento foi uma porcaria
+    - foi nada demais atendimento
+    - fui bem atendida
+    - foi tranquilo o atendimento
+    - foi normal o serviço
+    - o serviço foi normal
+    - atendimento foi nada demais
+    - foi bom atendimento
+    - fui bem atendida
+    - foi atencioso o atendimento
+    - foi atencioso o serviço
+    - o serviço foi bom
+    - atendimento foi bom
+    - foi muito bom atendimento
+    - fui muito bem atendida
+    - foi nota dez o atendimento
+    - foi excelente o serviço
+    - o serviço foi perfeito
+    - atendimento foi perfeito
+    - foi ruim
+    - foi horrível
+
+# - intent: service_quality
+#   examples: |
+#     - foi [ruim demais](service_quality)
+#     - foi [gostei não](service_quality)
+#     - foi [muito péssimo](service_quality)
+#     - foi [muito ruim](service_quality)
+#     - foi [nota zero](service_quality)
+#     - foi [comum](service_quality)
+#     - foi [mais ou menos](service_quality)
+#     - foi [nada demais](service_quality)
+#     - foi [tranquilo](service_quality)
+#     - foi [normal](service_quality)
+#     - foi [bom](service_quality)
+#     - foi [organizado](service_quality)
+#     - foi [atencioso](service_quality)
+#     - foi [simpático](service_quality)
+#     - foi [legal](service_quality)
+#     - foi [nota dez](service_quality)
+#     - foi [alto padrão](service_quality)
+#     - foi [perfeito](service_quality)
+#     - foi [excelente](service_quality)
+#     - foi [ta de parabens](service_quality)
+#     - para ser sincera foi [ruim demais](service_quality)
+#     - pra ser sincera foi [gostei não](service_quality)
+#     - para ser sincera foi [muito péssimo](service_quality)
+#     - para ser sincera foi [muito ruim](service_quality)
+#     - para ser sincera foi [nota zero](service_quality)
+#     - para ser sincera foi [comum](service_quality)
+#     - pra ser sincera foi [mais ou menos](service_quality)
+#     - para ser sincera foi [nada demais](service_quality)
+#     - pra ser sincera foi [tranquilo](service_quality)
+#     - para ser sincera foi [normal](service_quality)
+#     - para ser sincera foi [bom](service_quality)
+#     - para ser sincera foi [organizado](service_quality)
+#     - para ser sincera foi [atencioso](service_quality)
+#     - para ser sincera foi [simpático](service_quality)
+#     - para ser sincera foi [legal](service_quality)
+#     - para ser sincera foi [nota dez](service_quality)
+#     - pra ser sincera foi [alto padrão](service_quality)
+#     - para ser sincera foi [perfeito](service_quality)
+#     - pra ser sincera foi [excelente](service_quality)
+#     - para ser sincera foi [ta de parabens](service_quality)
+#     - o atendimento foi [ruim demais](service_quality)
+#     - atendimento foi [gostei não](service_quality)
+#     - o atendimento foi [muito péssimo](service_quality)
+#     - o atendimento foi [muito ruim](service_quality)
+#     - o atendimento foi [nota zero](service_quality)
+#     - o atendimento foi [comum](service_quality)
+#     - atendimento foi [mais ou menos](service_quality)
+#     - o atendimento foi [nada demais](service_quality)
+#     - atendimento foi [tranquilo](service_quality)
+#     - o atendimento foi [normal](service_quality)
+#     - o atendimento foi [bom](service_quality)
+#     - o atendimento foi [organizado](service_quality)
+#     - o atendimento foi [atencioso](service_quality)
+#     - o atendimento foi [simpático](service_quality)
+#     - o atendimento foi [legal](service_quality)
+#     - o atendimento foi [nota dez](service_quality)
+#     - atendimento foi [alto padrão](service_quality)
+#     - o atendimento foi [perfeito](service_quality)
+#     - atendimento foi [excelente](service_quality)
+#     - o atendimento foi [ta de parabens](service_quality)
+#     - o serviço foi [ruim demais](service_quality)
+#     - serviço foi [gostei não](service_quality)
+#     - o serviço foi [muito péssimo](service_quality)
+#     - o serviço foi [muito ruim](service_quality)
+#     - o serviço foi [nota zero](service_quality)
+#     - o serviço foi [comum](service_quality)
+#     - serviço foi [mais ou menos](service_quality)
+#     - o serviço foi [nada demais](service_quality)
+#     - serviço foi [tranquilo](service_quality)
+#     - o serviço foi [normal](service_quality)
+#     - o serviço foi [bom](service_quality)
+#     - o serviço foi [organizado](service_quality)
+#     - o serviço foi [atencioso](service_quality)
+#     - o serviço foi [simpático](service_quality)
+#     - o serviço foi [legal](service_quality)
+#     - o serviço foi [nota dez](service_quality)
+#     - serviço foi [alto padrão](service_quality)
+#     - o serviço foi [perfeito](service_quality)
+#     - serviço foi [excelente](service_quality)
+#     - o serviço foi [ta de parabens](service_quality)
+#     - foi [ruim demais](service_quality) atendimento
+#     - fui [mal](service_quality) atendido
+#     - fui [mau](service_quality) atendida
+#     - foi [péssimo](service_quality) o atendimento
+#     - foi [horrível](service_quality) o serviço
+#     - o serviço foi [devagar](service_quality)
+#     - atendimento foi [uma porcaria](service_quality)
+#     - foi [nada demais](service_quality) atendimento
+#     - fui [bem](service_quality) atendida
+#     - foi [tranquilo](service_quality) o atendimento
+#     - foi [normal](service_quality) o serviço
+#     - o serviço foi [normal](service_quality)
+#     - atendimento foi [nada demais](service_quality)
+#     - foi [bom](service_quality) atendimento
+#     - fui [bem](service_quality) atendida
+#     - foi [atencioso](service_quality) o atendimento
+#     - foi [atencioso](service_quality) o serviço
+#     - o serviço foi [bom](service_quality)
+#     - atendimento foi [bom](service_quality)
+#     - foi [muito bom](service_quality) atendimento
+#     - fui [muito bem](service_quality) atendida
+#     - foi [nota dez](service_quality) o atendimento
+#     - foi [excelente](service_quality) o serviço
+#     - o serviço foi [perfeito](service_quality)
+#     - atendimento foi [perfeito](service_quality)
+#     - foi [ruim](service_quality)
+#     - foi [horrível](service_quality)
+
+# - lookup: service_quality
+#   examples: |
+#     - nojento
+#     - nojo
+#     - ignorância
+#     - ignorante
+#     - ruim demais
+#     - bom não
+#     - gostei não
+#     - mal
+#     - mau
+#     - jogado para baixo
+#     - humilhado
+#     - desprezado
+#     - mal tratado
+#     - tratado mal
+#     - tratada mal
+#     - muito péssimo
+#     - muito ruim
+#     - muito mal
+#     - uma merda
+#     - uma porcaria
+#     - devagar
+#     - lá em baixo
+#     - ruinzinho
+#     - decepção
+#     - decepcionado 
+#     - lixo
+#     - pelos pés
+#     - azeda
+#     - enjoada
+#     - nem olhou na cara
+#     - não gostei
+#     - vergonha
+#     - desgraça
+#     - porcaria
+#     - porqueira
+#     - horror
+#     - horrível
+#     - terrível
+#     - péssimo
+#     - nota zero
+#     - invalida
+#     - um animal
+#     - bruto
+#     - justo
+#     - comum
+#     - mais ou menos
+#     - bonzinho
+#     - nada demais
+#     - nada de mais
+#     - tranquilo
+#     - normal
+#     - ok
+#     - bom
+#     - bem
+#     - organizado
+#     - gostei
+#     - feliz
+#     - atencioso
+#     - cortez
+#     - simpático
+#     - legal
+#     - gente boa
+#     - bem
+#     - gentil
+#     - incrivelmente bem
+#     - perfeitamente bem
+#     - belezura
+#     - joia
+#     - nota dez
+#     - diferenciado
+#     - um sonho
+#     - apaixonado
+#     - anjo
+#     - excelência
+#     - parabens
+#     - orgulho
+#     - alto padrão
+#     - um amor
+#     - muito bem
+#     - muito atencioso
+#     - perfeito
+#     - excelente
+#     - muito bom
+#     - esta de parabéns
+#     - está de parabéns
+#     - ta de parabens
+#     - prefiro morrer
+#     - pior coisa que já vi
+#     - nunca vi algo tão chato
+#     - melhorem pelo amor de Deus
